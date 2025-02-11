@@ -1,4 +1,4 @@
-# MistralChatApp
+# MAI (Mistral Api Interface)
 
 This app has no affiliation with MistralAI.
 
