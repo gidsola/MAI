@@ -32,7 +32,6 @@ namespace MistralChatApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.richTextModelOutput = new System.Windows.Forms.RichTextBox();
             this.richTextUserInput = new System.Windows.Forms.RichTextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.textBoxApiKey = new System.Windows.Forms.TextBox();
@@ -44,58 +43,47 @@ namespace MistralChatApp
             this.labelApiKey = new System.Windows.Forms.Label();
             this.modelSelectBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
             // 
-            // RichTextModelOutput
-            // 
-            this.richTextModelOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextModelOutput.Location = new System.Drawing.Point(435, 66);
-            this.richTextModelOutput.Margin = new System.Windows.Forms.Padding(10);
-            this.richTextModelOutput.Name = "RichTextModelOutput";
-            this.richTextModelOutput.ReadOnly = true;
-            this.richTextModelOutput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextModelOutput.Size = new System.Drawing.Size(869, 560);
-            this.richTextModelOutput.TabIndex = 0;
-            this.richTextModelOutput.Text = "";
-            this.richTextModelOutput.TextChanged += new System.EventHandler(this.RichTextModelOutput_TextChanged);
-            // 
-            // RichTextUserInput
+            // richTextUserInput
             // 
             this.richTextUserInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextUserInput.Location = new System.Drawing.Point(435, 667);
-            this.richTextUserInput.Name = "RichTextUserInput";
+            this.richTextUserInput.Name = "richTextUserInput";
             this.richTextUserInput.Size = new System.Drawing.Size(689, 110);
             this.richTextUserInput.TabIndex = 1;
             this.richTextUserInput.Text = "";
             this.richTextUserInput.TextChanged += new System.EventHandler(this.RichTextUserInput_TextChanged);
             // 
-            // button1
+            // submitButton
             // 
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitButton.Location = new System.Drawing.Point(1166, 667);
-            this.submitButton.Name = "button1";
+            this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(138, 110);
             this.submitButton.TabIndex = 2;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
-            // textBoxApiKeyInput
+            // textBoxApiKey
             // 
             this.textBoxApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxApiKey.Location = new System.Drawing.Point(46, 89);
-            this.textBoxApiKey.Name = "textBoxApiKeyInput";
+            this.textBoxApiKey.Name = "textBoxApiKey";
             this.textBoxApiKey.Size = new System.Drawing.Size(348, 24);
             this.textBoxApiKey.TabIndex = 3;
             this.textBoxApiKey.TextChanged += new System.EventHandler(this.TextBoxApiKey_TextChanged);
             // 
-            // RichTextSystemPrompt
+            // richTextSystemPrompt
             // 
             this.richTextSystemPrompt.Location = new System.Drawing.Point(46, 464);
-            this.richTextSystemPrompt.Name = "RichTextSystemPrompt";
+            this.richTextSystemPrompt.Name = "richTextSystemPrompt";
             this.richTextSystemPrompt.Size = new System.Drawing.Size(348, 313);
             this.richTextSystemPrompt.TabIndex = 4;
             this.richTextSystemPrompt.Text = "";
@@ -108,7 +96,7 @@ namespace MistralChatApp
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1342, 30);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -118,7 +106,7 @@ namespace MistralChatApp
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(49, 26);
             this.toolStripMenuItem1.Text = "Edit";
             // 
             // exitToolStripMenuItem
@@ -127,26 +115,26 @@ namespace MistralChatApp
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.exitToolStripMenuItem.Text = "API Configuration";
             // 
-            // label1
+            // labelSystemPrompt
             // 
             this.labelSystemPrompt.AutoSize = true;
             this.labelSystemPrompt.BackColor = System.Drawing.Color.Transparent;
             this.labelSystemPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSystemPrompt.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelSystemPrompt.Location = new System.Drawing.Point(51, 441);
-            this.labelSystemPrompt.Name = "label1";
+            this.labelSystemPrompt.Name = "labelSystemPrompt";
             this.labelSystemPrompt.Size = new System.Drawing.Size(283, 20);
             this.labelSystemPrompt.TabIndex = 6;
             this.labelSystemPrompt.Text = "Assistant Guidance (system prompt)";
             // 
-            // label2
+            // labelApiKey
             // 
             this.labelApiKey.AutoSize = true;
             this.labelApiKey.BackColor = System.Drawing.Color.Transparent;
             this.labelApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelApiKey.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelApiKey.Location = new System.Drawing.Point(51, 66);
-            this.labelApiKey.Name = "label2";
+            this.labelApiKey.Name = "labelApiKey";
             this.labelApiKey.Size = new System.Drawing.Size(68, 20);
             this.labelApiKey.TabIndex = 6;
             this.labelApiKey.Text = "API Key";
@@ -177,12 +165,27 @@ namespace MistralChatApp
             this.label3.TabIndex = 8;
             this.label3.Text = "Model Selection";
             // 
+            // webView21
+            // 
+            this.webView21.AllowExternalDrop = true;
+            this.webView21.BackColor = System.Drawing.Color.White;
+            this.webView21.CreationProperties = null;
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView21.Location = new System.Drawing.Point(435, 66);
+            this.webView21.Name = "webView21";
+            this.webView21.Padding = new System.Windows.Forms.Padding(5);
+            this.webView21.Size = new System.Drawing.Size(869, 560);
+            this.webView21.TabIndex = 9;
+            this.webView21.ZoomFactor = 1D;
+            this.webView21.Click += new System.EventHandler(this.webView21_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1342, 814);
+            this.Controls.Add(this.webView21);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.modelSelectBox);
             this.Controls.Add(this.labelApiKey);
@@ -191,7 +194,6 @@ namespace MistralChatApp
             this.Controls.Add(this.textBoxApiKey);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.richTextUserInput);
-            this.Controls.Add(this.richTextModelOutput);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -203,14 +205,13 @@ namespace MistralChatApp
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextModelOutput;
         private System.Windows.Forms.RichTextBox richTextUserInput;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.TextBox textBoxApiKey;
@@ -222,6 +223,7 @@ namespace MistralChatApp
         private System.Windows.Forms.Label labelApiKey;
         private ComboBox modelSelectBox;
         private Label label3;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
 

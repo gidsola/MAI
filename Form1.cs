@@ -39,10 +39,13 @@ namespace MistralChatApp
         {
             //TODO: webview with markdown supports.
             string userInput = richTextUserInput.Text;
-            richTextModelOutput.AppendText("\r\nUser: " + userInput + "\r\n");
+            //richTextModelOutput.AppendText("\r\nUser: " + userInput + "\r\n");
 
             string message = await mistralChat.ChatCompletion(userInput);
-            richTextModelOutput.AppendText("\r\nAI: " + message + "\r\n");
+            //richTextModelOutput.AppendText("\r\nAI: " + message + "\r\n");
+
+            await webView21.EnsureCoreWebView2Async();
+            webView21.NavigateToString($"<html><body><pre><code>{message}</code></pre></body></html>");
         }
 
         private void LabelApiKey_Click(object sender, EventArgs e)
@@ -78,5 +81,9 @@ namespace MistralChatApp
             MistralChatConfig.ChatConfig["Model"] = modelSelect;
         }
 
+        private void webView21_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
