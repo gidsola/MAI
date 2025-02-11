@@ -30,21 +30,22 @@ namespace MistralChatApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBoxApiKeyInput.Text = MistralChatConfig.ChatConfig["ApiKey"];
+            textBoxApiKey.Text = MistralChatConfig.ChatConfig["ApiKey"];
             modelSelectBox.Text = MistralChatConfig.ChatConfig["Model"];
-            RichTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
+            richTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void SubmitButton_Click(object sender, EventArgs e)
         {
-            string userInput = RichTextUserInput.Text;
-            RichTextModelOutput.AppendText("\r\nUser: " + userInput + "\r\n");
+            //TODO: webview with markdown supports.
+            string userInput = richTextUserInput.Text;
+            richTextModelOutput.AppendText("\r\nUser: " + userInput + "\r\n");
 
             string message = await mistralChat.ChatCompletion(userInput);
-            RichTextModelOutput.AppendText("\r\nAI: " + message + "\r\n");
+            richTextModelOutput.AppendText("\r\nAI: " + message + "\r\n");
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void LabelApiKey_Click(object sender, EventArgs e)
         {
 
         }
@@ -60,21 +61,22 @@ namespace MistralChatApp
 
         private void RichTextSystemPrompt_TextChanged(object sender, EventArgs e)
         {
-            string systemprompt = RichTextSystemPrompt.Text;
+            string systemprompt = richTextSystemPrompt.Text;
             MistralChatConfig.ChatConfig["SystemPrompt"] = systemprompt;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBoxApiKey_TextChanged(object sender, EventArgs e)
         {
-            string apikey = textBoxApiKeyInput.Text;
+            string apikey = textBoxApiKey.Text;
             MistralChatConfig.ChatConfig["ApiKey"] = apikey;
 
         }
 
-        private void modelSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ModelSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string modelSelect = modelSelectBox.SelectedItem.ToString();
             MistralChatConfig.ChatConfig["Model"] = modelSelect;
         }
+
     }
 }
