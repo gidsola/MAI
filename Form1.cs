@@ -2,6 +2,8 @@
 using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Markdig;
+using Markdig.SyntaxHighlighting;
 using MistralChatApp.MistralConfig;
 using MistralChatApp.MistralRequest;
 
@@ -10,7 +12,12 @@ namespace MistralChatApp
     public partial class Form1 : Form
     {
         readonly MistralChat mistralChat = new();
-        
+        readonly MarkdownPipeline pipeline = new MarkdownPipelineBuilder()
+            .UseAdvancedExtensions()
+            .UseEmojiAndSmiley()
+            .UseSyntaxHighlighting()
+            .Build();
+
         public Form1()
         {
             InitializeComponent();
@@ -37,24 +44,17 @@ namespace MistralChatApp
 
         private async void SubmitButton_Click(object sender, EventArgs e)
         {
-            //TODO: webview with markdown supports.
-            string userInput = richTextUserInput.Text;
-            //richTextModelOutput.AppendText("\r\nUser: " + userInput + "\r\n");
-
-            string message = await mistralChat.ChatCompletion(userInput);
-            //richTextModelOutput.AppendText("\r\nAI: " + message + "\r\n");
+            string 
+                message = await mistralChat.ChatCompletion(richTextUserInput.Text),
+                result = Markdown.ToHtml(message, pipeline);
 
             await webView21.EnsureCoreWebView2Async();
-            webView21.NavigateToString($"<html><body><pre><code>{message}</code></pre></body></html>");
+            webView21.NavigateToString(result);
         }
 
         private void LabelApiKey_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void RichTextModelOutput_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void RichTextUserInput_TextChanged(object sender, EventArgs e)
@@ -64,21 +64,17 @@ namespace MistralChatApp
 
         private void RichTextSystemPrompt_TextChanged(object sender, EventArgs e)
         {
-            string systemprompt = richTextSystemPrompt.Text;
-            MistralChatConfig.ChatConfig["SystemPrompt"] = systemprompt;
+            MistralChatConfig.ChatConfig["SystemPrompt"] = richTextSystemPrompt.Text;
         }
 
         private void TextBoxApiKey_TextChanged(object sender, EventArgs e)
         {
-            string apikey = textBoxApiKey.Text;
-            MistralChatConfig.ChatConfig["ApiKey"] = apikey;
-
+            MistralChatConfig.ChatConfig["ApiKey"] = textBoxApiKey.Text;
         }
 
         private void ModelSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string modelSelect = modelSelectBox.SelectedItem.ToString();
-            MistralChatConfig.ChatConfig["Model"] = modelSelect;
+            MistralChatConfig.ChatConfig["Model"] = modelSelectBox.SelectedItem.ToString();
         }
 
         private void webView21_Click(object sender, EventArgs e)
