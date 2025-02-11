@@ -12,7 +12,6 @@ namespace MistralChatApp.MistralRequest {
     internal class MistralChat {
 
         readonly HttpClient client = new();
-        readonly MistralChatConfig mistralChatConfig = new();
 
         /// <summary>
         /// Performs the chat completion endpoint request.
@@ -26,22 +25,22 @@ namespace MistralChatApp.MistralRequest {
             try {
 
                 client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {mistralChatConfig.ApiKey}");
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {MistralChatConfig.ChatConfig["ApiKey"]}");
 
                 dynamic body = new {
-                    model = mistralChatConfig.Model,
-                    top_p = mistralChatConfig.Top_p,
-                    max_tokens = mistralChatConfig.Max_tokens,
-                    stream = mistralChatConfig.Stream,
-                    safe_prompt = mistralChatConfig.Safe_prompt,
+                    model = MistralChatConfig.ChatConfig["Model"],
+                    top_p = MistralChatConfig.ChatConfig["Top_p"],
+                    max_tokens = MistralChatConfig.ChatConfig["Max_tokens"],
+                    stream = MistralChatConfig.ChatConfig["Stream"],
+                    safe_prompt = MistralChatConfig.ChatConfig["Safe_prompt"],
                     messages = new List<dynamic> {
-                        new { role = "system", content = mistralChatConfig.SystemPrompt },
+                        new { role = "system", content = MistralChatConfig.ChatConfig["SystemPrompt"] },
                         new { role = "user", content }
                     }
                 };
 
                 using var result = await client.PostAsync(
-                    mistralChatConfig.Endpoint,
+                    MistralChatConfig.ChatConfig["Endpoint"],
                     new StringContent(
                         JsonConvert.SerializeObject(body),
                         Encoding.UTF8,

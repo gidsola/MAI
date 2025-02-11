@@ -1,23 +1,20 @@
 ﻿using System;
 using System.IO;
-//using System.Collections.Generic;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using MistralChatApp.MistralConfig;
 using MistralChatApp.MistralRequest;
-using System.Collections.Generic;
 
 namespace MistralChatApp
 {
     public partial class Form1 : Form
     {
         readonly MistralChat mistralChat = new();
-        readonly MistralChatConfig mistralChatConfig = new();
         
         public Form1()
         {
             InitializeComponent();
+            MistralChatConfig.InitializeChatConfig();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -33,14 +30,13 @@ namespace MistralChatApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBoxApiKeyInput.Text = mistralChatConfig.ApiKey;
-            modelSelectBox.Text = mistralChatConfig.Model;
-            RichTextSystemPrompt.Text = mistralChatConfig.SystemPrompt;
+            textBoxApiKeyInput.Text = MistralChatConfig.ChatConfig["ApiKey"];
+            modelSelectBox.Text = MistralChatConfig.ChatConfig["Model"];
+            RichTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string apikey = textBoxApiKeyInput.Text;
             string userInput = RichTextUserInput.Text;
             RichTextModelOutput.AppendText("\r\nUser: " + userInput + "\r\n");
 

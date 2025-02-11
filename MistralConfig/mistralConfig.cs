@@ -5,22 +5,18 @@ using System.Collections.Generic;
 
 namespace MistralChatApp.MistralConfig {
     /// <summary>
-    /// Mistral chat completion config
+    /// Mistral chat completion config class
     /// </summary>
     public partial class MistralChatConfig {
         /// <summary>
-        /// Provides updated info to instanced classes. Likely to replace the constructed public set.
+        /// Chat config object
         /// </summary>
         public static Dictionary<string, dynamic> ChatConfig { get; set; }
-        public string SystemPrompt { get; set; }
-        public string ApiKey { get; set; }
-        public string Endpoint { get; set; }
-        public string Model { get; set; }
-        public double Top_p { get; set; }
-        public int Max_tokens { get; set; }
-        public bool Stream { get; set; }
-        public bool Safe_prompt { get; set; }
-        public MistralChatConfig() {
+
+        /// <summary>
+        /// Chat config initialization.
+        /// </summary>
+        public static void InitializeChatConfig() {
 
             if (File.Exists("config.json")) {
                 string json = File.ReadAllText("config.json");
@@ -37,16 +33,7 @@ namespace MistralChatApp.MistralConfig {
                     { "Stream", false },
                     { "Safe_prompt", false }
                 };
-            }
-
-            SystemPrompt = ChatConfig["SystemPrompt"];
-            ApiKey = ChatConfig["ApiKey"];
-            Endpoint = ChatConfig["Endpoint"];
-            Model = ChatConfig["Model"];
-            Top_p = ChatConfig["Top_p"];
-            Max_tokens = (int)ChatConfig["Max_tokens"];
-            Stream = ChatConfig["Stream"];
-            Safe_prompt = ChatConfig["Safe_prompt"];
+            };
 
         }
     };
