@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Net.Http;
 //using System.Threading;
 using System.Threading.Tasks;
-using System.Net.Http;
-using Newtonsoft.Json;
-using MistralChatApp.MistralConfig;
-using System.IO;
+using System.Collections.Generic;
 
-namespace MistralChatApp.MistralRequest {
+using Newtonsoft.Json;
+using MAI.MistralConfig;
+
+namespace MAI.MistralRequest {
 
     internal class MistralChat {
 
@@ -58,7 +59,7 @@ namespace MistralChatApp.MistralRequest {
         public async Task<string> ChatCompletion(string content) {
             try {
 
-                using HttpResponseMessage result = await client.SendAsync(CreateChatRequestMessage(content), HttpCompletionOption.ResponseHeadersRead);
+                using HttpResponseMessage result = await client.SendAsync(CreateChatRequestMessage(content), HttpCompletionOption.ResponseContentRead);
                 if (result.IsSuccessStatusCode) {
                     return JsonConvert.DeserializeObject<dynamic>(
                         await result.Content.ReadAsStringAsync()

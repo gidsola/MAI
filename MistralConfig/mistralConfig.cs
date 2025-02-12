@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace MistralChatApp.MistralConfig {
+namespace MAI.MistralConfig {
     /// <summary>
     /// Mistral chat completion config class
     /// </summary>

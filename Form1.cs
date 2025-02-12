@@ -4,12 +4,12 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Markdig;
 using Markdig.SyntaxHighlighting;
-using MistralChatApp.MistralConfig;
-using MistralChatApp.MistralRequest;
+using MAI.MistralConfig;
+using MAI.MistralRequest;
 
-namespace MistralChatApp
+namespace MAI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         readonly MistralChat mistralChat = new();
         readonly MarkdownPipeline pipeline = new MarkdownPipelineBuilder()
@@ -18,7 +18,7 @@ namespace MistralChatApp
             .UseSyntaxHighlighting()
             .Build();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             MistralChatConfig.InitializeChatConfig();

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.IO;
 
-namespace MistralChatApp.MistralContext {
+namespace MAI.MistralContext {
     internal class MessageHistory {
         public static async Task AddPair() {
             string docPath = "./";//Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
