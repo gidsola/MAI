@@ -35,20 +35,23 @@ namespace MistralChatApp
             File.WriteAllText("config.json", updatedJson);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            pictureBox1.Visible = false;
             textBoxApiKey.Text = MistralChatConfig.ChatConfig["ApiKey"];
             modelSelectBox.Text = MistralChatConfig.ChatConfig["Model"];
             richTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
+            await webView21.EnsureCoreWebView2Async();
         }
 
         private async void SubmitButton_Click(object sender, EventArgs e)
         {
+            
+            pictureBox1.Visible = true;
             string 
                 message = await mistralChat.ChatCompletion(richTextUserInput.Text),
                 result = Markdown.ToHtml(message, pipeline);
-
-            await webView21.EnsureCoreWebView2Async();
+            pictureBox1.Visible = false;
             webView21.NavigateToString(result);
         }
 
@@ -78,6 +81,11 @@ namespace MistralChatApp
         }
 
         private void webView21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
