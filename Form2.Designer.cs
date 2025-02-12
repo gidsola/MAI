@@ -84,6 +84,7 @@
             this.textBoxApiKey.Name = "textBoxApiKey";
             this.textBoxApiKey.Size = new System.Drawing.Size(327, 24);
             this.textBoxApiKey.TabIndex = 4;
+            this.textBoxApiKey.TextChanged += new System.EventHandler(this.TextBoxApiKey_TextChanged);
             // 
             // groupBox2
             // 
@@ -118,6 +119,7 @@
             this.modelSelectBox.Name = "modelSelectBox";
             this.modelSelectBox.Size = new System.Drawing.Size(268, 28);
             this.modelSelectBox.TabIndex = 8;
+            this.modelSelectBox.SelectedIndexChanged += new System.EventHandler(this.ModelSelectBox_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -137,6 +139,7 @@
             this.richTextSystemPrompt.Size = new System.Drawing.Size(552, 332);
             this.richTextSystemPrompt.TabIndex = 5;
             this.richTextSystemPrompt.Text = "";
+            this.richTextSystemPrompt.TextChanged += new System.EventHandler(this.RichTextSystemPrompt_TextChanged);
             // 
             // ConfigurationForm
             // 

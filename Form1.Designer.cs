@@ -39,6 +39,8 @@ namespace MAI
             this.appToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,7 +49,7 @@ namespace MAI
             // richTextUserInput
             // 
             this.richTextUserInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextUserInput.Location = new System.Drawing.Point(336, 667);
+            this.richTextUserInput.Location = new System.Drawing.Point(438, 668);
             this.richTextUserInput.Name = "richTextUserInput";
             this.richTextUserInput.Size = new System.Drawing.Size(689, 110);
             this.richTextUserInput.TabIndex = 1;
@@ -58,9 +60,9 @@ namespace MAI
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.Location = new System.Drawing.Point(1067, 667);
+            this.submitButton.Location = new System.Drawing.Point(1133, 667);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(138, 110);
+            this.submitButton.Size = new System.Drawing.Size(171, 110);
             this.submitButton.TabIndex = 2;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
@@ -72,10 +74,10 @@ namespace MAI
             this.webView21.BackColor = System.Drawing.Color.White;
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(38, 66);
+            this.webView21.Location = new System.Drawing.Point(336, 66);
             this.webView21.Name = "webView21";
             this.webView21.Padding = new System.Windows.Forms.Padding(5);
-            this.webView21.Size = new System.Drawing.Size(1266, 560);
+            this.webView21.Size = new System.Drawing.Size(968, 560);
             this.webView21.TabIndex = 9;
             this.webView21.ZoomFactor = 1D;
             // 
@@ -112,7 +114,7 @@ namespace MAI
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(599, 269);
+            this.pictureBox1.Location = new System.Drawing.Point(752, 239);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(148, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -120,12 +122,32 @@ namespace MAI
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseWaitCursor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(336, 667);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 110);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Voice";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1229, 551);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 75);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Listen";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1342, 814);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webView21);
             this.Controls.Add(this.submitButton);
@@ -158,6 +180,8 @@ namespace MAI
         private MenuStrip menuStrip1;
         private ToolStripMenuItem appToolStripMenuItem;
         private ToolStripMenuItem configurationToolStripMenuItem;
+        private Button button1;
+        private Button button2;
     }
 }
 
