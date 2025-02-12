@@ -24,11 +24,6 @@ namespace MistralChatApp
             MistralChatConfig.InitializeChatConfig();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
             string updatedJson = JsonConvert.SerializeObject(MistralChatConfig.ChatConfig, Formatting.Indented);
@@ -55,16 +50,6 @@ namespace MistralChatApp
             webView21.NavigateToString(result);
         }
 
-        private void LabelApiKey_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RichTextUserInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void RichTextSystemPrompt_TextChanged(object sender, EventArgs e)
         {
             MistralChatConfig.ChatConfig["SystemPrompt"] = richTextSystemPrompt.Text;
@@ -78,16 +63,6 @@ namespace MistralChatApp
         private void ModelSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             MistralChatConfig.ChatConfig["Model"] = modelSelectBox.SelectedItem.ToString();
-        }
-
-        private void webView21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

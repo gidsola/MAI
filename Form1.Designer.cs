@@ -36,16 +36,12 @@ namespace MistralChatApp
             this.submitButton = new System.Windows.Forms.Button();
             this.textBoxApiKey = new System.Windows.Forms.TextBox();
             this.richTextSystemPrompt = new System.Windows.Forms.RichTextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSystemPrompt = new System.Windows.Forms.Label();
             this.labelApiKey = new System.Windows.Forms.Label();
             this.modelSelectBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +54,6 @@ namespace MistralChatApp
             this.richTextUserInput.Size = new System.Drawing.Size(689, 110);
             this.richTextUserInput.TabIndex = 1;
             this.richTextUserInput.Text = "";
-            this.richTextUserInput.TextChanged += new System.EventHandler(this.RichTextUserInput_TextChanged);
             // 
             // submitButton
             // 
@@ -91,32 +86,6 @@ namespace MistralChatApp
             this.richTextSystemPrompt.Text = "";
             this.richTextSystemPrompt.TextChanged += new System.EventHandler(this.RichTextSystemPrompt_TextChanged);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 30);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(49, 26);
-            this.toolStripMenuItem1.Text = "Edit";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.exitToolStripMenuItem.Text = "API Configuration";
-            // 
             // labelSystemPrompt
             // 
             this.labelSystemPrompt.AutoSize = true;
@@ -140,7 +109,6 @@ namespace MistralChatApp
             this.labelApiKey.Size = new System.Drawing.Size(68, 20);
             this.labelApiKey.TabIndex = 6;
             this.labelApiKey.Text = "API Key";
-            this.labelApiKey.Click += new System.EventHandler(this.LabelApiKey_Click);
             // 
             // modelSelectBox
             // 
@@ -179,7 +147,6 @@ namespace MistralChatApp
             this.webView21.Size = new System.Drawing.Size(869, 560);
             this.webView21.TabIndex = 9;
             this.webView21.ZoomFactor = 1D;
-            this.webView21.Click += new System.EventHandler(this.webView21_Click);
             // 
             // pictureBox1
             // 
@@ -195,7 +162,6 @@ namespace MistralChatApp
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.UseWaitCursor = true;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
@@ -213,19 +179,15 @@ namespace MistralChatApp
             this.Controls.Add(this.textBoxApiKey);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.richTextUserInput);
-            this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MIA (Mistral Api Interface)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -238,9 +200,6 @@ namespace MistralChatApp
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.TextBox textBoxApiKey;
         private System.Windows.Forms.RichTextBox richTextSystemPrompt;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label labelSystemPrompt;
         private System.Windows.Forms.Label labelApiKey;
         private ComboBox modelSelectBox;
