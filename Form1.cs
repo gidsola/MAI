@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Markdig;
 using Markdig.SyntaxHighlighting;
+using MAI.AppConfig;
 using MAI.MistralConfig;
 using MAI.MistralRequest;
 
@@ -33,9 +34,7 @@ namespace MAI
         private async void Form1_Load(object sender, EventArgs e)
         {
             pictureBox1.Visible = false;
-            textBoxApiKey.Text = MistralChatConfig.ChatConfig["ApiKey"];
-            modelSelectBox.Text = MistralChatConfig.ChatConfig["Model"];
-            richTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
+            
             await webView21.EnsureCoreWebView2Async();
         }
 
@@ -47,19 +46,10 @@ namespace MAI
             webView21.NavigateToString(Markdown.ToHtml(message, pipeline));
         }
 
-        private void RichTextSystemPrompt_TextChanged(object sender, EventArgs e)
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MistralChatConfig.ChatConfig["SystemPrompt"] = richTextSystemPrompt.Text;
-        }
-
-        private void TextBoxApiKey_TextChanged(object sender, EventArgs e)
-        {
-            MistralChatConfig.ChatConfig["ApiKey"] = textBoxApiKey.Text;
-        }
-
-        private void ModelSelectBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MistralChatConfig.ChatConfig["Model"] = modelSelectBox.SelectedItem.ToString();
+            ConfigurationForm configForm = new ();
+            configForm.Show();
         }
     }
 }
