@@ -41,13 +41,10 @@ namespace MistralChatApp
 
         private async void SubmitButton_Click(object sender, EventArgs e)
         {
-            
             pictureBox1.Visible = true;
-            string 
-                message = await mistralChat.ChatCompletion(richTextUserInput.Text),
-                result = Markdown.ToHtml(message, pipeline);
+            string message = await mistralChat.StreamingChatCompletion(richTextUserInput.Text);
             pictureBox1.Visible = false;
-            webView21.NavigateToString(result);
+            webView21.NavigateToString(Markdown.ToHtml(message, pipeline));
         }
 
         private void RichTextSystemPrompt_TextChanged(object sender, EventArgs e)
