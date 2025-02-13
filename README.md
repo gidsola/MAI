@@ -1,6 +1,8 @@
 # MAI (Mistral Api Interface)
 
-![MAI](preview.png)
+![MAI](new_preview1.png)  
+
+![MAI](new_preview2.png)
 
 This app has no affiliation with MistralAI.
 
