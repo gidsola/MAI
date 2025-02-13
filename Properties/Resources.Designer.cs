@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MAI.Properties {
+namespace MistralChatApp.Properties {
     using System;
     
     

@@ -40,7 +40,7 @@ namespace MAI
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.listenButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,7 +49,8 @@ namespace MAI
             // richTextUserInput
             // 
             this.richTextUserInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextUserInput.Location = new System.Drawing.Point(438, 668);
+            this.richTextUserInput.Location = new System.Drawing.Point(437, 668);
+            this.richTextUserInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextUserInput.Name = "richTextUserInput";
             this.richTextUserInput.Size = new System.Drawing.Size(689, 110);
             this.richTextUserInput.TabIndex = 1;
@@ -61,6 +62,7 @@ namespace MAI
             this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitButton.Location = new System.Drawing.Point(1133, 667);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(171, 110);
             this.submitButton.TabIndex = 2;
@@ -75,8 +77,9 @@ namespace MAI
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webView21.Location = new System.Drawing.Point(336, 66);
+            this.webView21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.webView21.Name = "webView21";
-            this.webView21.Padding = new System.Windows.Forms.Padding(5);
+            this.webView21.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.webView21.Size = new System.Drawing.Size(968, 560);
             this.webView21.TabIndex = 9;
             this.webView21.ZoomFactor = 1D;
@@ -88,7 +91,8 @@ namespace MAI
             this.appToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1341, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,6 +119,7 @@ namespace MAI
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(752, 239);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(148, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -125,28 +130,31 @@ namespace MAI
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(336, 667);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 110);
             this.button1.TabIndex = 12;
             this.button1.Text = "Voice";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // listenButton
             // 
-            this.button2.Location = new System.Drawing.Point(1229, 551);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 75);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Listen";
-            this.button2.UseVisualStyleBackColor = true;
+            this.listenButton.Location = new System.Drawing.Point(1229, 551);
+            this.listenButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listenButton.Name = "listenButton";
+            this.listenButton.Size = new System.Drawing.Size(75, 75);
+            this.listenButton.TabIndex = 13;
+            this.listenButton.Text = "Listen";
+            this.listenButton.UseVisualStyleBackColor = true;
+            this.listenButton.Click += new System.EventHandler(this.ListenButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1342, 814);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1341, 814);
+            this.Controls.Add(this.listenButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webView21);
@@ -157,10 +165,11 @@ namespace MAI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MIA (Mistral Api Interface)";
+            this.Text = "MIA (Multiple Api Interface)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
@@ -181,7 +190,7 @@ namespace MAI
         private ToolStripMenuItem appToolStripMenuItem;
         private ToolStripMenuItem configurationToolStripMenuItem;
         private Button button1;
-        private Button button2;
+        private Button listenButton;
     }
 }
 
