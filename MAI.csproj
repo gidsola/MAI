@@ -75,7 +75,7 @@
     <StartupObject>MAI.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>b5066d7de7e0e33f6edeb4520bad039e.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -238,6 +238,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="b5066d7de7e0e33f6edeb4520bad039e.ico" />
     <Content Include="favicon.ico" />
     <None Include="Resources\tenor.gif" />
   </ItemGroup>

@@ -73,7 +73,8 @@
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.modelSelectBox);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Fuchsia;
             this.groupBox1.Location = new System.Drawing.Point(38, 187);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(301, 486);
@@ -110,29 +111,29 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Location = new System.Drawing.Point(25, 253);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 20);
+            this.label4.Size = new System.Drawing.Size(116, 22);
             this.label4.TabIndex = 15;
             this.label4.Text = "Safe Prompt";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(25, 172);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.Size = new System.Drawing.Size(110, 22);
             this.label2.TabIndex = 13;
             this.label2.Text = "Max Tokens";
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(29, 195);
+            this.numericUpDown2.Location = new System.Drawing.Point(29, 197);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             4096,
             0,
@@ -157,11 +158,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(25, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.Size = new System.Drawing.Size(63, 22);
             this.label1.TabIndex = 11;
             this.label1.Text = "Top_p";
             // 
@@ -174,7 +175,7 @@
             0,
             0,
             131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(29, 128);
+            this.numericUpDown1.Location = new System.Drawing.Point(29, 130);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1,
             0,
@@ -194,11 +195,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Location = new System.Drawing.Point(25, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 20);
+            this.label3.Size = new System.Drawing.Size(145, 22);
             this.label3.TabIndex = 9;
             this.label3.Text = "Model Selection";
             // 
@@ -210,7 +211,7 @@
             "mistral-large-latest",
             "mistral-small-latest",
             "pixtral-large-latest"});
-            this.modelSelectBox.Location = new System.Drawing.Point(29, 59);
+            this.modelSelectBox.Location = new System.Drawing.Point(29, 61);
             this.modelSelectBox.Name = "modelSelectBox";
             this.modelSelectBox.Size = new System.Drawing.Size(241, 28);
             this.modelSelectBox.TabIndex = 8;
@@ -220,27 +221,28 @@
             // 
             this.labelApiKey.AutoSize = true;
             this.labelApiKey.BackColor = System.Drawing.Color.Transparent;
-            this.labelApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApiKey.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelApiKey.Location = new System.Drawing.Point(25, 38);
+            this.labelApiKey.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApiKey.ForeColor = System.Drawing.Color.Fuchsia;
+            this.labelApiKey.Location = new System.Drawing.Point(37, 38);
             this.labelApiKey.Name = "labelApiKey";
-            this.labelApiKey.Size = new System.Drawing.Size(68, 20);
+            this.labelApiKey.Size = new System.Drawing.Size(78, 22);
             this.labelApiKey.TabIndex = 7;
             this.labelApiKey.Text = "API Key";
             // 
             // textBoxApiKey
             // 
-            this.textBoxApiKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxApiKey.Location = new System.Drawing.Point(99, 36);
+            this.textBoxApiKey.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxApiKey.Location = new System.Drawing.Point(121, 35);
             this.textBoxApiKey.Name = "textBoxApiKey";
-            this.textBoxApiKey.Size = new System.Drawing.Size(327, 24);
+            this.textBoxApiKey.Size = new System.Drawing.Size(345, 28);
             this.textBoxApiKey.TabIndex = 4;
             this.textBoxApiKey.TextChanged += new System.EventHandler(this.TextBoxApiKey_TextChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.richTextSystemPrompt);
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.Fuchsia;
             this.groupBox2.Location = new System.Drawing.Point(379, 187);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(612, 398);
@@ -250,6 +252,7 @@
             // 
             // richTextSystemPrompt
             // 
+            this.richTextSystemPrompt.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextSystemPrompt.Location = new System.Drawing.Point(31, 36);
             this.richTextSystemPrompt.Name = "richTextSystemPrompt";
             this.richTextSystemPrompt.Size = new System.Drawing.Size(552, 332);
@@ -263,7 +266,7 @@
             this.groupBox3.Controls.Add(this.labelApiKey);
             this.groupBox3.Location = new System.Drawing.Point(38, 63);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(953, 90);
+            this.groupBox3.Size = new System.Drawing.Size(953, 93);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             // 
