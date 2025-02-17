@@ -32,7 +32,7 @@ namespace MAI
         {
             InitializeComponent();
             MistralChatConfig.InitializeChatConfig();
-            voice.Voice = voice.GetVoices("gender=female").Item(0);
+            voice.Voice = voice.GetVoices("Name=Microsoft Zira Desktop").Item(0);
         }
 
         private void Form1_Closing(object sender, FormClosingEventArgs e)
