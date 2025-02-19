@@ -1,19 +1,14 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-//using System.Speech;
 using SpeechLib;
-using Newtonsoft.Json;
 using Markdig;
 using Markdig.SyntaxHighlighting;
-using MAI.AppConfig;
-using MAI.MistralConfig;
 using MAI.MistralRequest;
 
-namespace MAI
+namespace MIA.MistralChatBot
 {
-    public partial class MainForm : Form
+    public partial class ChatBotForm : Form
     {
         readonly MistralChat mistralChat = new();
         readonly MarkdownPipeline pipeline = new MarkdownPipelineBuilder()
@@ -28,34 +23,26 @@ namespace MAI
         private bool isPaused = false;
         private bool isPlaying = false;
 
-        public MainForm()
+        public ChatBotForm()
         {
             InitializeComponent();
-            MistralChatConfig.InitializeChatConfig();
             voice.Voice = voice.GetVoices("Name=Microsoft Zira Desktop").Item(0);
         }
 
-        private void Form1_Closing(object sender, FormClosingEventArgs e)
-        {
-            string updatedJson = JsonConvert.SerializeObject(MistralChatConfig.ChatConfig, Formatting.Indented);
-            File.WriteAllText("config.json", updatedJson);
-        }
+       
 
-        private async void Form1_Load(object sender, EventArgs e)
+        private async void ChatBotForm_Load(object sender, EventArgs e)
         {
-            pictureBox1.Visible = false;
+            LoadingImage.Visible = false;
             await webView21.EnsureCoreWebView2Async();
         }
 
-        private void ConfigurationMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfigurationForm configForm = new();
-            configForm.Show();
-        }
+        
 
         private async void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (isPlaying){
+            if (isPlaying)
+            {
                 // redo : this is just queing another entry. maybe skip sentance, length ?..saving here
                 await Task.Run(() => {
                     voice.Pause();
@@ -63,14 +50,14 @@ namespace MAI
                 });
                 isPlaying = false;
                 isPaused = false;
-            }            
+            }
             webView21.NavigateToString(Markdown.ToHtml(await ResponseWithLoader(), pipeline));
         }
         private async Task<string> ResponseWithLoader()
         {
-            pictureBox1.Visible = true;
+            LoadingImage.Visible = true;
             currentTTSContent = await mistralChat.StreamingChatCompletion(richTextUserInput.Text);
-            pictureBox1.Visible = false;
+            LoadingImage.Visible = false;
             return currentTTSContent;
         }
 
@@ -87,7 +74,8 @@ namespace MAI
 
         private void PauseResumeButton_Click(object sender, EventArgs e)
         {
-            if(!isPaused) {
+            if (!isPaused)
+            {
                 isPaused = true;
                 button2.Text = "Resume";
                 voice.Pause();
@@ -99,5 +87,6 @@ namespace MAI
                 voice.Resume();
             }
         }
+
     }
 }

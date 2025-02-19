@@ -77,9 +77,7 @@
   <PropertyGroup>
     <ApplicationIcon>b5066d7de7e0e33f6edeb4520bad039e.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ManifestCertificateThumbprint>6FFF52808DEF090C1F23AC763A65DC7242F1B35A</ManifestCertificateThumbprint>
   </PropertyGroup>
@@ -176,28 +174,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="MistralConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="MistralConfigForm.Designer.cs">
+      <DependentUpon>MistralConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChatBotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatBotForm.Designer.cs">
+      <DependentUpon>ChatBotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetImgApi\GetImg.cs" />
     <Compile Include="MistralConfig\mistralConfig.cs" />
     <Compile Include="MistralContext\mistralContext.cs" />
     <Compile Include="MistralRequest\mistralRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="MistralConfigForm.resx">
+      <DependentUpon>MistralConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatBotForm.resx">
+      <DependentUpon>ChatBotForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -239,7 +248,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="b5066d7de7e0e33f6edeb4520bad039e.ico" />
-    <Content Include="favicon.ico" />
+    <None Include="Resources\10711790.png" />
+    <None Include="Resources\getimg.ico" />
+    <None Include="Resources\mistralai.ico" />
     <None Include="Resources\tenor.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +264,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Web.WebView2.1.0.3065.39\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.3065.39\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
