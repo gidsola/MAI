@@ -283,6 +283,7 @@
             this.Text = "MistralAI API Configuration";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MistralConfigForm_Closing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();

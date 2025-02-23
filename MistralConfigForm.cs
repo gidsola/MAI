@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using MAI.MistralConfig;
+using Newtonsoft.Json;
 
 namespace MAI.MistralConfigForm
 {
@@ -18,6 +20,12 @@ namespace MAI.MistralConfigForm
             numericUpDown1.Value = (decimal)MistralChatConfig.ChatConfig["Top_p"];
             numericUpDown2.Value = MistralChatConfig.ChatConfig["Max_tokens"];
             richTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
+        }
+
+        private void MistralConfigForm_Closing(object sender, FormClosingEventArgs e)
+        {
+            string updatedJson = JsonConvert.SerializeObject(MistralChatConfig.ChatConfig, Formatting.Indented);
+            File.WriteAllText("config.json", updatedJson);
         }
 
         private void button1_Click(object sender, EventArgs e)

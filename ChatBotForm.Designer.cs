@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatBotForm));
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.LoadingImage = new System.Windows.Forms.PictureBox();
             this.richTextUserInput = new System.Windows.Forms.RichTextBox();
             this.submitButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.explainButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LoadingImage = new System.Windows.Forms.PictureBox();
+            this.ChatBotConfigButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.DictateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingImage)).BeginInit();
             this.SuspendLayout();
@@ -43,16 +43,47 @@
             // webView21
             // 
             this.webView21.AllowExternalDrop = true;
-            this.webView21.BackColor = System.Drawing.Color.White;
+            this.webView21.BackColor = System.Drawing.Color.DarkGray;
+            this.webView21.CausesValidation = false;
             this.webView21.CreationProperties = null;
-            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(12, 11);
-            this.webView21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.DarkGray;
+            this.webView21.Location = new System.Drawing.Point(143, 11);
+            this.webView21.Margin = new System.Windows.Forms.Padding(2);
             this.webView21.Name = "webView21";
-            this.webView21.Padding = new System.Windows.Forms.Padding(5);
-            this.webView21.Size = new System.Drawing.Size(1343, 582);
+            this.webView21.Padding = new System.Windows.Forms.Padding(4);
+            this.webView21.Size = new System.Drawing.Size(1155, 550);
             this.webView21.TabIndex = 10;
             this.webView21.ZoomFactor = 1D;
+            // 
+            // richTextUserInput
+            // 
+            this.richTextUserInput.BackColor = System.Drawing.Color.DarkGray;
+            this.richTextUserInput.CausesValidation = false;
+            this.richTextUserInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextUserInput.Location = new System.Drawing.Point(143, 566);
+            this.richTextUserInput.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextUserInput.Name = "richTextUserInput";
+            this.richTextUserInput.Size = new System.Drawing.Size(892, 120);
+            this.richTextUserInput.TabIndex = 12;
+            this.richTextUserInput.Text = "";
+            // 
+            // submitButton
+            // 
+            this.submitButton.BackColor = System.Drawing.Color.Transparent;
+            this.submitButton.CausesValidation = false;
+            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.submitButton.FlatAppearance.BorderSize = 0;
+            this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.submitButton.Location = new System.Drawing.Point(1040, 566);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(2);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(113, 120);
+            this.submitButton.TabIndex = 13;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // LoadingImage
             // 
@@ -63,7 +94,7 @@
             this.LoadingImage.ErrorImage = null;
             this.LoadingImage.Image = ((System.Drawing.Image)(resources.GetObject("LoadingImage.Image")));
             this.LoadingImage.InitialImage = null;
-            this.LoadingImage.Location = new System.Drawing.Point(591, 219);
+            this.LoadingImage.Location = new System.Drawing.Point(656, 201);
             this.LoadingImage.Margin = new System.Windows.Forms.Padding(0);
             this.LoadingImage.Name = "LoadingImage";
             this.LoadingImage.Size = new System.Drawing.Size(148, 162);
@@ -72,83 +103,60 @@
             this.LoadingImage.TabStop = false;
             this.LoadingImage.UseWaitCursor = true;
             // 
-            // richTextUserInput
+            // ChatBotConfigButton
             // 
-            this.richTextUserInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextUserInput.Location = new System.Drawing.Point(290, 600);
-            this.richTextUserInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.richTextUserInput.Name = "richTextUserInput";
-            this.richTextUserInput.Size = new System.Drawing.Size(860, 147);
-            this.richTextUserInput.TabIndex = 12;
-            this.richTextUserInput.Text = "";
+            this.ChatBotConfigButton.CausesValidation = false;
+            this.ChatBotConfigButton.Location = new System.Drawing.Point(1229, 566);
+            this.ChatBotConfigButton.Name = "ChatBotConfigButton";
+            this.ChatBotConfigButton.Size = new System.Drawing.Size(69, 57);
+            this.ChatBotConfigButton.TabIndex = 14;
+            this.ChatBotConfigButton.Text = "Config";
+            this.ChatBotConfigButton.UseVisualStyleBackColor = true;
+            this.ChatBotConfigButton.Click += new System.EventHandler(this.ChatBotConfigButton_Click);
             // 
-            // submitButton
+            // CloseButton
             // 
-            this.submitButton.BackColor = System.Drawing.Color.Transparent;
-            this.submitButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.ForeColor = System.Drawing.Color.Blue;
-            this.submitButton.Location = new System.Drawing.Point(12, 600);
-            this.submitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(170, 110);
-            this.submitButton.TabIndex = 13;
-            this.submitButton.Text = "Submit";
-            this.submitButton.UseVisualStyleBackColor = false;
-            this.submitButton.Click += new System.EventHandler(this.SubmitButton_Click);
+            this.CloseButton.CausesValidation = false;
+            this.CloseButton.Location = new System.Drawing.Point(1229, 628);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(69, 57);
+            this.CloseButton.TabIndex = 15;
+            this.CloseButton.Text = "Close";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // button2
+            // DictateButton
             // 
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(21, 714);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Pause";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.PauseResumeButton_Click);
-            // 
-            // explainButton
-            // 
-            this.explainButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.explainButton.ForeColor = System.Drawing.Color.Fuchsia;
-            this.explainButton.Location = new System.Drawing.Point(188, 664);
-            this.explainButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.explainButton.Name = "explainButton";
-            this.explainButton.Size = new System.Drawing.Size(96, 46);
-            this.explainButton.TabIndex = 16;
-            this.explainButton.Text = "Explain";
-            this.explainButton.UseVisualStyleBackColor = true;
-            this.explainButton.Click += new System.EventHandler(this.ExplainButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Fuchsia;
-            this.button1.Location = new System.Drawing.Point(188, 600);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 58);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Voice";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DictateButton.CausesValidation = false;
+            this.DictateButton.Location = new System.Drawing.Point(1158, 566);
+            this.DictateButton.Name = "DictateButton";
+            this.DictateButton.Size = new System.Drawing.Size(65, 120);
+            this.DictateButton.TabIndex = 16;
+            this.DictateButton.Text = "Dictate";
+            this.DictateButton.UseVisualStyleBackColor = true;
+            this.DictateButton.Click += new System.EventHandler(this.DictateButton_Click);
             // 
             // ChatBotForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 772);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.explainButton);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(1309, 697);
+            this.Controls.Add(this.DictateButton);
+            this.Controls.Add(this.CloseButton);
+            this.Controls.Add(this.ChatBotConfigButton);
+            this.Controls.Add(this.LoadingImage);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.richTextUserInput);
-            this.Controls.Add(this.LoadingImage);
             this.Controls.Add(this.webView21);
-            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ChatBotForm";
-            this.Text = "MistralAI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chat Bot";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.ChatBotForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
@@ -164,8 +172,8 @@
         private System.Windows.Forms.PictureBox LoadingImage;
         private System.Windows.Forms.RichTextBox richTextUserInput;
         private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button explainButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ChatBotConfigButton;
+        private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Button DictateButton;
     }
 }
