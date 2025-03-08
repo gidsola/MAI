@@ -17,8 +17,8 @@ namespace MAI.MistralConfigForm
         {
             textBoxApiKey.Text = MistralChatConfig.ChatConfig["ApiKey"];
             modelSelectBox.Text = MistralChatConfig.ChatConfig["Model"];
-            numericUpDown1.Value = (decimal)MistralChatConfig.ChatConfig["Top_p"];
-            numericUpDown2.Value = MistralChatConfig.ChatConfig["Max_tokens"];
+            topPUpDown.Value = (decimal)MistralChatConfig.ChatConfig["Top_p"];
+            maxTokensUpDown.Value = MistralChatConfig.ChatConfig["Max_tokens"];
             richTextSystemPrompt.Text = MistralChatConfig.ChatConfig["SystemPrompt"];
         }
 
@@ -28,7 +28,7 @@ namespace MAI.MistralConfigForm
             File.WriteAllText("config.json", updatedJson);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -50,13 +50,17 @@ namespace MAI.MistralConfigForm
 
         private void numericUpDown1ValueChanged(object sender, EventArgs e)
         {
-            MistralChatConfig.ChatConfig["Top_p"] = (double)numericUpDown1.Value;
+            MistralChatConfig.ChatConfig["Top_p"] = (double)topPUpDown.Value;
         }
 
         private void numericUpDown2ValueChanged(object sender, EventArgs e)
         {
-            MistralChatConfig.ChatConfig["Max_tokens"] = (int)numericUpDown2.Value;
+            MistralChatConfig.ChatConfig["Max_tokens"] = (int)maxTokensUpDown.Value;
         }
 
-    }
-}
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    };
+};

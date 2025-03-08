@@ -7,7 +7,7 @@ namespace MAI.MistralConfig {
     /// <summary>
     /// Mistral chat completion config class
     /// </summary>
-    public partial class MistralChatConfig {
+    public class MistralChatConfig {
         /// <summary>
         /// Chat config object
         /// </summary>
