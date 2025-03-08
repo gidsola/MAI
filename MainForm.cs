@@ -97,12 +97,12 @@ namespace MAI
 
         private async void DictateButton_Click(object sender, EventArgs e)
         {
-            if (!isPlaying) await Task.Run(async () =>
+            if (!isPlaying) 
             {
                 string explanation = await mistralChat.StreamingChatCompletion("Dictate the current text in a manner that a blind person would understand: " + currentTTSContent);
-                voice.Speak(explanation, SpeechVoiceSpeakFlags.SVSFNLPSpeakPunc);
                 isPlaying = true;
-            });
+                await Task.Run(() => voice.Speak(explanation, SpeechVoiceSpeakFlags.SVSFNLPSpeakPunc));
+            }
             else PauseResumeButton_Click(sender, e);
         }
 
