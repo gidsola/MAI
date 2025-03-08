@@ -12,14 +12,11 @@ namespace MAI.GetImgApi
         private const string apiKey = "";
         private const string baseUrl = "https://api.getimg.ai/v1/";
 
-        private HttpRequestMessage CreateImageGenRequestMessage(string family, string model, string prompt)
+        private HttpRequestMessage CreateImageGenRequestMessage(string family, /**removing*/string model, /**removing*/string prompt/*, object body*/)
         {
             try
             {
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
-                string endpoint = $"{baseUrl + family}/text-to-image";
-
+                // todo: get full object as arg.
                 // stable_diffusion
                 object body = new
                 {
@@ -33,6 +30,10 @@ namespace MAI.GetImgApi
                     guidance = 1.5,
                     output_format = "png",
                 };
+
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+                string endpoint = $"{baseUrl + family}/text-to-image";
 
                 return new(HttpMethod.Post, endpoint)
                 {
