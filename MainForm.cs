@@ -25,8 +25,8 @@ namespace MAI
 
         public MainForm()
         {
-            InitializeComponent();
             MistralChatConfig.InitializeChatConfig();
+            InitializeComponent();
             voice.Voice = voice.GetVoices("Gender=Female").Item(0);
         }
 

@@ -34,9 +34,9 @@ namespace MAI.MistralRequest
                     stream,
                     safe_prompt = MistralChatConfig.ChatConfig["Safe_prompt"],
                     messages = new List<dynamic> {
-                    new { role = "system", content = MistralChatConfig.ChatConfig["SystemPrompt"] },
-                    new { role = "user", content }
-                }
+                        new { role = "system", content = MistralChatConfig.ChatConfig["SystemPrompt"] },
+                        new { role = "user", content }
+                    }
                 };
 
                 return new(HttpMethod.Post, MistralChatConfig.ChatConfig["Endpoint"])
