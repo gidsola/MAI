@@ -30,12 +30,9 @@ namespace MAI
             voice.Voice = voice.GetVoices("Gender=Female").Item(0);
         }
 
-        private async void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            chatbotPanel.Visible = false;
-            LoadingImage.Visible = false;
-            imageGenPanel.Visible = false;
-            await webView21.EnsureCoreWebView2Async();
+            mainPanel.BringToFront();
         }
 
 
@@ -53,29 +50,30 @@ namespace MAI
         }
 
 
+        /////////////////////////////////
+        //  shared event handler
+
+        private void PanelCloseButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.BringToFront();
+        }
+
+
 
         ////////////////////////////////////////////////////////////////
         //   app menu items
-        //   - todo: after cleanup lookat panel positions opposed to visiblity
 
 
-        private void ChatBotMenuItem_Click(object sender, EventArgs e)
+        private async void ChatBotMenuItem_Click(object sender, EventArgs e)
         {
-            if (imageGenPanel.Visible)
-            {
-                imageGenPanel.Visible = false;
-            }
-            chatbotPanel.Visible = true;
+            await webView21.EnsureCoreWebView2Async();
+            LoadingImage.Visible = false;
+            chatbotPanel.BringToFront();
         }
 
         private void ImageGenMenuItem_Click(object sender, EventArgs e)
         {
-            if (chatbotPanel.Visible)
-            {
-                chatbotPanel.Visible = false;
-            }
-            imageGenPanel.Visible = true;
-
+            imageGenPanel.BringToFront();
         }
 
         private void ConfigMenuItem_Click(object sender, EventArgs e) // to do
@@ -112,10 +110,6 @@ namespace MAI
             configForm.Show();
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            chatbotPanel.Visible = false;
-        }
 
         private void PauseResumeButton_Click(object sender, EventArgs e)
         {

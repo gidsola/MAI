@@ -46,6 +46,7 @@ namespace MAI
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.richTextUserInput = new System.Windows.Forms.RichTextBox();
             this.submitButton = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.imageGenPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -137,9 +138,9 @@ namespace MAI
             this.chatbotPanel.Controls.Add(this.dictateButton);
             this.chatbotPanel.Controls.Add(this.chatBotConfigButton);
             this.chatbotPanel.Controls.Add(this.LoadingImage);
-            this.chatbotPanel.Controls.Add(this.webView21);
             this.chatbotPanel.Controls.Add(this.richTextUserInput);
             this.chatbotPanel.Controls.Add(this.submitButton);
+            this.chatbotPanel.Controls.Add(this.webView21);
             this.chatbotPanel.Location = new System.Drawing.Point(154, 12);
             this.chatbotPanel.Name = "chatbotPanel";
             this.chatbotPanel.Size = new System.Drawing.Size(1181, 705);
@@ -154,7 +155,7 @@ namespace MAI
             this.closeButton.TabIndex = 15;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.closeButton.Click += new System.EventHandler(this.PanelCloseButton_Click);
             // 
             // dictateButton
             // 
@@ -241,6 +242,13 @@ namespace MAI
             this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
+            // mainPanel
+            // 
+            this.mainPanel.Location = new System.Drawing.Point(154, 12);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1181, 705);
+            this.mainPanel.TabIndex = 17;
+            // 
             // imageGenPanel
             // 
             this.imageGenPanel.Controls.Add(this.button1);
@@ -250,15 +258,15 @@ namespace MAI
             this.imageGenPanel.Controls.Add(this.imageGenResponseWindow);
             this.imageGenPanel.Controls.Add(this.richTextBox1);
             this.imageGenPanel.Controls.Add(this.button4);
-            this.imageGenPanel.Location = new System.Drawing.Point(154, 12);
+            this.imageGenPanel.Location = new System.Drawing.Point(154, 11);
             this.imageGenPanel.Name = "imageGenPanel";
-            this.imageGenPanel.Size = new System.Drawing.Size(1181, 705);
+            this.imageGenPanel.Size = new System.Drawing.Size(1178, 703);
             this.imageGenPanel.TabIndex = 17;
             // 
             // button1
             // 
             this.button1.CausesValidation = false;
-            this.button1.Location = new System.Drawing.Point(1097, 636);
+            this.button1.Location = new System.Drawing.Point(1095, 635);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 57);
             this.button1.TabIndex = 15;
@@ -268,7 +276,7 @@ namespace MAI
             // button2
             // 
             this.button2.CausesValidation = false;
-            this.button2.Location = new System.Drawing.Point(1027, 573);
+            this.button2.Location = new System.Drawing.Point(1025, 572);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(65, 120);
             this.button2.TabIndex = 16;
@@ -278,7 +286,7 @@ namespace MAI
             // button3
             // 
             this.button3.CausesValidation = false;
-            this.button3.Location = new System.Drawing.Point(1098, 573);
+            this.button3.Location = new System.Drawing.Point(1096, 572);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(69, 57);
             this.button3.TabIndex = 14;
@@ -294,7 +302,7 @@ namespace MAI
             this.imageGenLoadingImage.ErrorImage = null;
             this.imageGenLoadingImage.Image = ((System.Drawing.Image)(resources.GetObject("imageGenLoadingImage.Image")));
             this.imageGenLoadingImage.InitialImage = null;
-            this.imageGenLoadingImage.Location = new System.Drawing.Point(503, 212);
+            this.imageGenLoadingImage.Location = new System.Drawing.Point(501, 211);
             this.imageGenLoadingImage.Margin = new System.Windows.Forms.Padding(0);
             this.imageGenLoadingImage.Name = "imageGenLoadingImage";
             this.imageGenLoadingImage.Size = new System.Drawing.Size(148, 162);
@@ -310,7 +318,7 @@ namespace MAI
             this.imageGenResponseWindow.CausesValidation = false;
             this.imageGenResponseWindow.CreationProperties = null;
             this.imageGenResponseWindow.DefaultBackgroundColor = System.Drawing.Color.DarkGray;
-            this.imageGenResponseWindow.Location = new System.Drawing.Point(13, 12);
+            this.imageGenResponseWindow.Location = new System.Drawing.Point(11, 11);
             this.imageGenResponseWindow.Margin = new System.Windows.Forms.Padding(2);
             this.imageGenResponseWindow.Name = "imageGenResponseWindow";
             this.imageGenResponseWindow.Padding = new System.Windows.Forms.Padding(4);
@@ -323,7 +331,7 @@ namespace MAI
             this.richTextBox1.BackColor = System.Drawing.Color.DarkGray;
             this.richTextBox1.CausesValidation = false;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(13, 573);
+            this.richTextBox1.Location = new System.Drawing.Point(11, 572);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(892, 120);
@@ -339,7 +347,7 @@ namespace MAI
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.Location = new System.Drawing.Point(909, 573);
+            this.button4.Location = new System.Drawing.Point(907, 572);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 120);
@@ -353,9 +361,10 @@ namespace MAI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1460, 729);
-            this.Controls.Add(this.imageGenPanel);
             this.Controls.Add(this.chatbotPanel);
+            this.Controls.Add(this.imageGenPanel);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.mainPanel);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -396,7 +405,7 @@ namespace MAI
         private Button dictateButton;
         private Button chatBotConfigButton;
         private Button closeButton;
-        private Panel imageGenPanel;
+        private Panel mainPanel;
         private Button button1;
         private Button button2;
         private Button button3;
@@ -404,6 +413,7 @@ namespace MAI
         private Microsoft.Web.WebView2.WinForms.WebView2 imageGenResponseWindow;
         private RichTextBox richTextBox1;
         private Button button4;
+        private Panel imageGenPanel;
     }
 }
 
