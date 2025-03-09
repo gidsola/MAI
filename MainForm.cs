@@ -27,12 +27,15 @@ namespace MAI
         {
             MistralChatConfig.InitializeChatConfig();
             InitializeComponent();
+            mainPanel.BringToFront();
             voice.Voice = voice.GetVoices("Gender=Female").Item(0);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            mainPanel.BringToFront();
+
+            MessageBox.Show("Welcome");
+            
         }
 
 
